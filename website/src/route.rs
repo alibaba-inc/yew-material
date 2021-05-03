@@ -3,6 +3,7 @@ use crate::styles::*;
 use web_sys::window;
 use yew::prelude::*;
 use yew_material::prelude::*;
+use yew_material_utils::prelude::*;
 use yew_material_utils::{dispatch, element_by_id, get_inner_width};
 use yew_router::{prelude::*, Switch};
 use yewtil::function_component;
@@ -61,7 +62,7 @@ pub enum Routes {
     Slider,
     #[to = "/zh/tab"]
     Tab,
-    #[to = "/zh/iconbutton"]
+    #[to = "/zh/icon_button"]
     IconButton,
     #[to = "/zh/icon"]
     Icon,
@@ -99,7 +100,7 @@ pub fn switch_routes(switch: Routes, alias: &str) -> (Html, Html) {
         Routes::Slider => ("Slider", html! {<PgSlider />}),
         Routes::Tab => ("Tab", html! {<PgTab />}),
         Routes::Icon => ("Icon", html! {<PgIcon />}),
-        Routes::IconButton => ("IconButton", html! {<PgIconButton />}),
+        Routes::IconButton => ("Icon_Button", html! {<PgIconButton />}),
         Routes::FormField => ("FormField", html! {<PgFormField />}),
         Routes::Progress => ("Progress", html! {<PgProgress />}),
         Routes::Iframe => ("Iframe", html! {<PgIframe />}),
@@ -110,7 +111,7 @@ pub fn switch_routes(switch: Routes, alias: &str) -> (Html, Html) {
     let anchors = html! {
         <RouterAnchor<Routes> route=switch>
             <ListItemTemp
-                text=if alias!="" {alias} else {name}
+                text=if alias!="" {alias.into()} else {name.replace("_", "")}
                 pathname=name.to_lowercase()
                 onclick=Callback::from(|_| {
                     element_by_id("body").set_scroll_top(0);
@@ -210,10 +211,13 @@ pub fn static_des(i: u32) -> Html {
     des
 }
 
-pub fn link_des(url: &str) -> Html {
+pub fn link_des(_url: &str) -> Html {
     html! {
         <div class=style("link")>
-            <a href=url target="_blank">
+            <a
+                target="_blank"
+                href=format!("https://github.com/alibaba-inc/yew-material/blob/master/website/src/page/{}.rs", Url::get_path(1))
+            >
                 <Text vertical_align="bottom">{"编辑或查看Github本页源码"}</Text>
                 <Icon color="inherit" icon="insert_link" />
             </a>
