@@ -2,7 +2,7 @@ use crate::route::*;
 use crate::styles::*;
 
 use yew::prelude::*;
-use yew_material::prelude::*;
+use yew_material::{prelude::*, VERSION};
 use yew_material_utils::theme::{change_theme, get_theme_ident};
 use yew_material_utils::{add_listener, BoolFeatures};
 
@@ -80,7 +80,7 @@ impl Component for Index {
                 <Appbar fixed=true>
                     <IconButton icon="menu" color="#fff" slot="navigationIcon" onclick=self.link.callback(|_| Msg::ListClick(0)) />
                     <span slot="title">{"Yew Material-UI"}</span>
-                    <span slot="title" class=style("version")>{"v1.0.15"}</span>
+                    <span slot="title" class=style("version")>{"v"}{VERSION}</span>
                     <IconButton
                         slot="actionItems"
                         color="#fff"

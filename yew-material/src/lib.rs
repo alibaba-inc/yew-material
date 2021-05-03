@@ -137,6 +137,8 @@ pub mod iframe;
 #[cfg(feature = "iframe")]
 pub use self::iframe::*;
 
+pub static VERSION: &str = "0.1.23";
+
 #[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen(js_namespace = window, js_name = "Imports")]
