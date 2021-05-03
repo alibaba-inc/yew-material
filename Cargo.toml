@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "website",
+    "yew-material",
+    "yew-material-macro",
+    "yew-material-utils",
+]

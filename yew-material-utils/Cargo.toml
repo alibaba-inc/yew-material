@@ -1,0 +1,36 @@
+[package]
+name = "yew-material-utils"
+version = "0.1.23"
+edition = "2018"
+authors = ["madman.wang <admin@yew-material.cn>"]
+readme = "./README.md"
+repository = "https://github.com/alibaba-inc/yew-material"
+homepage = "https://www.yew-material.cn"
+documentation = "https://docs.rs/yew-material-utils"
+license = "MIT/Apache-2.0"
+keywords = ["rust", "javascript", "wasm", "gui", "material"]
+categories = ["yew", "material", "gui"]
+description = "Is a utils for yew-material"
+
+[dependencies]
+wasm-bindgen = "0.2.69"
+wasm-bindgen-futures = "0.4.19"
+futures-channel-preview = "0.3.0-alpha.18"
+serde = "1.0.119"
+serde_derive = "1.0.119"
+serde_json = "1.0.61"
+lazy_static = { version = "1.4.0", features = ["spin_no_std"] }
+spin = "0.5.2"
+gloo-timers = { version = "0.2.1", features = ["futures"]}
+yew = { git = "https://github.com/yewstack/yew/", branch = "master" }
+yew-services = { git = "https://github.com/yewstack/yew/", branch = "master"}
+anyhow = "1.0"
+log = "0.4.6"
+wasm-logger = "0.2.0"
+
+[dependencies.web-sys]
+version = "0.3.46"
+features = [
+    "CssStyleDeclaration",
+    "ShadowRoot",
+]

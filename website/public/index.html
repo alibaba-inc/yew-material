@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/normalize.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>yew-material</title>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <style>
+            .loader {
+                position: fixed;
+                margin: auto auto;
+                width: 50px;
+                height: 50px;
+                display: block;
+                overflow: hidden;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            .loader:before {
+                content: "";
+                display: block;
+                padding-top: 100%;
+            }
+
+            .circular {
+                animation: rotate 2s linear infinite;
+                animation: rotate 2s linear infinite;
+                height: 100%;
+                transform-origin: center center;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+
+            .path {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+                animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+                animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+                stroke-linecap: round;
+            }
+
+            @keyframes rotate {
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes rotate {
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes dash {
+                0% {
+                    stroke-dasharray: 1, 200;
+                    stroke-dashoffset: 0;
+                }
+
+                50% {
+                    stroke-dasharray: 89, 200;
+                    stroke-dashoffset: -35px;
+                }
+
+                100% {
+                    stroke-dasharray: 89, 200;
+                    stroke-dashoffset: -124px;
+                }
+            }
+
+            @keyframes dash {
+                0% {
+                    stroke-dasharray: 1, 200;
+                    stroke-dashoffset: 0;
+                }
+
+                50% {
+                    stroke-dasharray: 89, 200;
+                    stroke-dashoffset: -35px;
+                }
+
+                100% {
+                    stroke-dasharray: 89, 200;
+                    stroke-dashoffset: -124px;
+                }
+            }
+
+            @keyframes color {
+
+                100%,
+                0% {
+                    stroke: #d62d20;
+                }
+
+                40% {
+                    stroke: #0057e7;
+                }
+
+                66% {
+                    stroke: #008744;
+                }
+
+                80%,
+                90% {
+                    stroke: #ffa700;
+                }
+            }
+
+            @keyframes color {
+
+                100%,
+                0% {
+                    stroke: #d62d20;
+                }
+
+                40% {
+                    stroke: #0057e7;
+                }
+
+                66% {
+                    stroke: #008744;
+                }
+
+                80%,
+                90% {
+                    stroke: #ffa700;
+                }
+            }
+        </style>
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <script>
+        //解决app初始化未完成前页面背景色与主题不一致问题
+        let theme = localStorage["__mdc_theme_ident"];
+        let is_iframe = location.search.indexOf("_services=iframe") > -1;
+        if (!is_iframe) {
+            if (theme === "light") {
+                document.body.style.background = "#fff";
+            } else {
+                document.body.style.background = "#333";
+            }
+        }
+    </script>
+</body>
+
+</html>

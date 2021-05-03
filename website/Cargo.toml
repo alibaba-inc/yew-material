@@ -1,0 +1,65 @@
+[package]
+name = "website"
+authors = ["madman.wang <admin@yew-material.cn>"]
+categories = ["yew", "material", "website"]
+description = "yew-material website."
+edition = "2018"
+license = "MIT/Apache-2.0"
+readme = "./README.md"
+version = "0.1.23"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+serde_derive = "1.0.115"
+yew = { git = "https://github.com/yewstack/yew/", branch = "master"}
+yew-router = { git = "https://github.com/yewstack/yew/", branch = "master"}
+yewtil = { git = "https://github.com/yewstack/yew/", branch = "master" , features = ["pure", "neq", "effect", "future"] }
+wasm-bindgen = { version = "0.2.67", features = ["serde-serialize"]}
+wasm-bindgen-futures = "0.4.17"
+serde = "1.0.115"
+serde_json = "1.0.57"
+serde_urlencoded = "0.6.1"
+web-sys = { version = "0.3.44" }
+yew-material-macro = {path = "../yew-material-macro"}
+yew-material-utils = {path = "../yew-material-utils"}
+
+[dependencies.yew-material]
+path = "../yew-material"
+default-features = false
+features = [
+    "appbar",
+    "animate",
+    "button",
+    "dialog",
+    "divider",
+    "flex",
+    "icon",
+    "icon_button",
+    "img",
+    "innerhtml",
+    "list",
+    "menu",
+    "radio",
+    "checkbox",
+    "switch",
+    "slider",
+    "skeleton",
+    "snackbar",
+    "text",
+    "textfield",
+    "textarea",
+    "select",
+    "form",
+    "formfield",
+    "progress",
+    "tab",
+    "iframe"
+]
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ['-Oz']
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.17"

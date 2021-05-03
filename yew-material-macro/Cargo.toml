@@ -1,0 +1,15 @@
+[package]
+name = "yew-material-macro"
+version = "0.1.23"
+edition = "2018"
+authors = ["madman.wang <admin@yew-material.cn>"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/alibaba-inc/yew-material"
+description = "Is a macro for yew-material"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "1.0.39"
+quote = "1.0.7"

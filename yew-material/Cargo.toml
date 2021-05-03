@@ -1,0 +1,63 @@
+[package]
+name = "yew-material"
+version = "0.1.23"
+edition = "2018"
+authors = ["madman.wang <admin@yew-material.cn>"]
+readme = "./README.md"
+repository = "https://github.com/alibaba-inc/yew-material"
+homepage = "https://www.yew-material.cn"
+documentation = "https://docs.rs/yew-material"
+license = "MIT/Apache-2.0"
+keywords = ["rust", "javascript", "wasm", "gui", "material"]
+categories = ["yew", "material", "gui"]
+description = "yew-material is a material-ui framework for yew"
+
+[features]
+default = []
+animate = []
+appbar = []
+button = []
+dialog = []
+divider = []
+flex = []
+form = []
+formfield = []
+icon = []
+icon_button = []
+img = []
+innerhtml = []
+list = []
+progress = []
+radio = []
+checkbox = []
+switch = []
+slider = []
+skeleton = []
+snackbar = []
+text = []
+textfield = []
+textarea = []
+select = []
+menu = []
+tab = []
+iframe = []
+
+[dependencies]
+uuid = { version = "0.8.2", features = ["wasm-bindgen", "v4"]}
+serde = "1.0.119"
+serde_derive = "1.0.119"
+serde_json = "1.0.61"
+wasm-bindgen = { version = "0.2.69", features = ["serde-serialize"]}
+wasm-bindgen-futures = "0.4.19"
+yew = { git = "https://github.com/yewstack/yew/", branch = "master"}
+yewtil = { git = "https://github.com/yewstack/yew/", branch = "master" , features = ["pure", "neq", "future"] }
+yew-router = { git = "https://github.com/yewstack/yew/", branch = "master"}
+yew-material-utils = { version = "0.1.23", path = "../yew-material-utils" }
+yew-material-macro = { version = "0.1.23", path = "../yew-material-macro" }
+
+[dependencies.web-sys]
+version = "0.3.46"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.19"
+

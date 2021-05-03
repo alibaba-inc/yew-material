@@ -1,0 +1,12 @@
+{
+	"private": true,
+	"workspaces": [
+		"website/*"
+	],
+	"scripts": {
+		"install": "cd website && npm install",
+		"build": "cd website && npm run build",
+		"start": "cd website && npm run start",
+		"test": "cd yew-material && wasm-pack test --firefox"
+	}
+}
