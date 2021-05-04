@@ -69,6 +69,7 @@ use yew_material::icon::Icon;
                         {table_th("color", "颜色", "String", "", "")}
                         {table_th("size", "尺寸", "String", "", "")}
                         {table_th("margin", "外边距", "String", "", "")}
+                        {table_th("vertical_align", "垂直对齐方式，取值同css vertical-align", "", "", "")}
                     </Flex>
                     {static_des(5)}
                     <Flex direction="column" border_top=true>

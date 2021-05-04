@@ -22,6 +22,8 @@ pub struct Props {
     pub size: String,
     #[prop_or_default]
     pub margin: String,
+    #[prop_or_else(|| "middle".into())]
+    pub vertical_align: String,
 }
 
 pub type This = Icon;
@@ -46,6 +48,7 @@ comp_theme!(
             color,
             size,
             margin,
+            vertical_align,
             ..
         } = props.to_owned();
 
@@ -54,7 +57,7 @@ comp_theme!(
                 json!({
                     "jss": {
                         "--mdc-icon-size": size,
-                        "vertical-align": "middle",
+                        "vertical-align": vertical_align,
                         "margin": margin,
                         "color": if color == "" {
                             &theme.icon.color
