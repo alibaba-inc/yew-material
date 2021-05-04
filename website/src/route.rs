@@ -1,7 +1,7 @@
 use crate::page::*;
 use crate::styles::*;
-use web_sys::window;
 use yew::prelude::*;
+use yew::utils::window;
 use yew_material::prelude::*;
 use yew_material_utils::prelude::*;
 use yew_material_utils::{dispatch, element_by_id, get_inner_width};
@@ -72,10 +72,13 @@ pub enum Routes {
     Iframe,
     #[to = "/zh/innerhtml"]
     InnerHtml,
+    #[to = "/"]
+    Index,
 }
 
 pub fn switch_routes(switch: Routes, alias: &str) -> (Html, Html) {
     let (name, page) = match switch {
+        Routes::Index => ("Index", html! {<PgIndex />}),
         Routes::Install => ("Install", html! {<PgInstall />}),
         Routes::Usage => ("Usage", html! {<PgUsage />}),
         Routes::Button => ("Button", html! {<PgButton />}),
@@ -147,7 +150,7 @@ pub fn routes_render() -> Html {
 }
 
 pub fn router_selected(name: &String) -> bool {
-    let pathname = window().unwrap().location().pathname().unwrap();
+    let pathname = window().location().pathname().unwrap();
     if pathname == format!("/zh/{}", name) {
         true
     } else {

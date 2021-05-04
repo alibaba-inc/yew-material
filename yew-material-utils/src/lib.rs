@@ -39,6 +39,7 @@ pub use self::node::*;
 extern "C" {
     pub static PUBLIC_URL: String;
     pub static InnerWidth: f64;
+    pub static InnerHeight: f64;
     pub fn imports(path: &str);
     pub fn event(message: &str) -> Event;
     pub fn bind_listener(uuid: &str, r#type: &str, callback: JsValue);
@@ -279,6 +280,15 @@ pub fn get_inner_width() -> f64 {
         .unwrap()
         .as_f64()
         .ok_or("get window innerWidth error!")
+        .unwrap()
+}
+
+pub fn get_inner_height() -> f64 {
+    window()
+        .inner_height()
+        .unwrap()
+        .as_f64()
+        .ok_or("get window innerHeight error!")
         .unwrap()
 }
 

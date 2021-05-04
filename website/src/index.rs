@@ -2,6 +2,7 @@ use crate::route::*;
 use crate::styles::*;
 
 use yew::prelude::*;
+use yew::utils::window;
 use yew_material::{prelude::*, VERSION};
 use yew_material_utils::theme::{change_theme, get_theme_ident};
 use yew_material_utils::{add_listener, BoolFeatures};
@@ -9,6 +10,7 @@ use yew_material_utils::{add_listener, BoolFeatures};
 pub enum Msg {
     ChangeTheme,
     ListClick(usize),
+    CloseLeftMenu,
 }
 
 pub struct Index {
@@ -22,7 +24,11 @@ impl Component for Index {
     type Properties = ();
 
     fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
-        let left_menu = bool::get_storage("left_menu_hide");
+        let pathname = window().location().pathname().unwrap();
+        let left_menu = match pathname.as_str() {
+            "/" => true,
+            _ => bool::get_storage("left_menu_hide"),
+        };
         Self {
             link,
             theme: get_theme_ident(false),
@@ -43,6 +49,13 @@ impl Component for Index {
                     bool::set_storage("left_menu_hide", self.list_hide[0]);
                 }
                 true
+            }
+            Msg::CloseLeftMenu => {
+                match self.list_hide[0] {
+                    false => self.link.send_message(Msg::ListClick(0)),
+                    _ => (),
+                }
+                false
             }
             Msg::ChangeTheme => {
                 self.theme = match self.theme.as_str() {
@@ -66,7 +79,7 @@ impl Component for Index {
                 "_index",
                 "close_left_menu",
                 Box::new(move || {
-                    &link.send_message(Msg::ListClick(0));
+                    &link.send_message(Msg::CloseLeftMenu);
                 }),
             );
         }
@@ -178,8 +191,8 @@ impl Component for Index {
                                 {router_anchor(Routes::Textarea)}
                                 {router_anchor(Routes::Textfield)}
                             </Flex>
+                            <Flex height="120px" />
                         </List>
-                        <Flex height="120px" />
                     </Animate>
                     <Flex class=style("container") grow=1 direction="column">
                         {routes_render()}
@@ -206,7 +219,7 @@ impl Component for Index {
                             <Flex grow=1 direction="column">
                                 <p>{"帮助"}</p>
                                 <Text size="14px">{"Discord：madman.wang#9085"}</Text>
-                                <Text size="14px" padding="5px 0 0 0">{"咨询邮箱：admin@yew-material.cn"}</Text>
+                                <Text size="14px" padding="5px 0 0 0">{"Email：admin@yew-material.cn"}</Text>
                             </Flex>
                         </Flex>
                         <Flex

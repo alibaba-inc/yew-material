@@ -11,7 +11,9 @@ pub mod icon;
 pub mod icon_button;
 pub mod iframe;
 pub mod img;
+pub mod index;
 pub mod innerhtml;
+pub mod install;
 pub mod list;
 pub mod menu;
 pub mod progress;
@@ -27,6 +29,7 @@ pub mod text;
 pub mod textarea;
 pub mod textfield;
 pub mod theme;
+pub mod usage;
 
 pub use animate::*;
 pub use appbar::*;
@@ -41,7 +44,9 @@ pub use icon::*;
 pub use icon_button::*;
 pub use iframe::*;
 pub use img::*;
+pub use index::*;
 pub use innerhtml::*;
+pub use install::*;
 pub use list::*;
 pub use menu::*;
 pub use progress::*;
@@ -57,9 +62,4 @@ pub use text::*;
 pub use textarea::*;
 pub use textfield::*;
 pub use theme::*;
-
-//===============
-pub mod install;
-pub mod usage;
-pub use install::*;
 pub use usage::*;

@@ -1,6 +1,7 @@
 
 export const PUBLIC_URL = typeof process === "object" ? process.env.PUBLIC_URL : "";
 export const InnerWidth = innerWidth;
+export const InnerHeight = innerHeight;
 
 const Root = document.getElementById("root");
 const YewMdc_iframe_id = query_string("_id");
