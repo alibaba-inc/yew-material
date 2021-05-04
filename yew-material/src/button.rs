@@ -104,6 +104,7 @@ comp_theme!(
             Box::new(move |theme: &Theme<Extra>| {
                 let background = match pop.background.as_str() {
                     _ if pop.text_button => &btn_color,
+                    "" if outlined => "",
                     "" => &theme.button.background,
                     _ => &pop.background,
                 };
