@@ -44,11 +44,14 @@ registry = \"https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git\"
 check-revoke = false
                         ")}
                     </ul>
-
                     <div class=style("subtitle")>{"2、Node环境"}</div>
                     <ul class=style("describe")>
                         <li>{"前往 "}<a target="_blank" href="https://nodejs.org">{"node官网"}</a>{"，根据相应教程安装好node环境"}</li>
                         <li>{"以防止意外发生，请确保node和npm是最新版本"}</li>
+                        <li>{"国内用户因网络问题，可将npm切换至淘宝镜像"}</li>
+                        {code("
+npm config set registry https://registry.npm.taobao.org
+                        ")}
                     </ul>
                     <Flex border_top=true border_bottom=true margin="65px 0 80px 0" padding="15px 0" justify="center">
                         <Text size="18px"><a href="/zh/usage">{"环境已准备好，进行下一步"}</a></Text>
