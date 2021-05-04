@@ -200,21 +200,26 @@ impl Component for Index {
                 </Flex>
                 <Animate class="footer_box" r#type="margin" index=1 margin=if self.list_hide[0] {"0".into()} else {format!("0 0 0 {}", list_width)}>
                     <Flex class=style("footer") direction="column">
-                        <Flex class="footer_items env_mobile_hide" auto_theme=true border_bottom=true padding="30px 0 40px 0">
-                            <Flex grow=1 direction="column" max_width="330px">
+                        <Flex
+                            class="footer_items env_mobile_hide"
+                            auto_theme=true
+                            border_bottom=true
+                            padding="30px 0 40px 0"
+                        >
+                            <Flex direction="column">
                                 <p>{"相关资源"}</p>
-                                <div><a href="https://www.rust-lang.org">{"Rust官网"}</a></div>
-                                <div><a href="https://github.com/rustwasm/wasm-bindgen">{"Rust wasm-bindgen Github仓库"}</a></div>
-                                <div><a href="https://docs.rs/web-sys">{"Rust web-sys 文档"}</a></div>
-                                <div><a href="https://yew.rs">{"Yew官网"}</a></div>
-                                <div><a href="https://github.com/material-components/material-components-web-components">{"Material Web-Components Github仓库"}</a></div>
+                                <div><a target="_blank" href="https://www.rust-lang.org">{"Rust官网"}</a></div>
+                                <div><a target="_blank" href="https://github.com/rustwasm/wasm-bindgen">{"Rust wasm-bindgen Github仓库"}</a></div>
+                                <div><a target="_blank" href="https://docs.rs/web-sys">{"Rust web-sys 文档"}</a></div>
+                                <div><a target="_blank" href="https://yew.rs">{"Yew官网"}</a></div>
+                                <div><a target="_blank" href="https://github.com/material-components/material-components-web-components">{"Material Web-Components Github仓库"}</a></div>
                             </Flex>
-                            <Flex grow=1 direction="column" max_width="180px">
+                            <Flex direction="column" padding="0 110px">
                                 <p>{"社区"}</p>
-                                <div><a href="https://users.rust-lang.org">{"Rust官方论坛"}</a></div>
-                                <div><a href="https://discord.gg/rust-lang">{"Rust官方discord"}</a></div>
-                                <div><a href="https://rustcc.cn">{"Rust中文社区"}</a></div>
-                                <div><a href="https://discord.gg/4mR6magGCs">{"Yew官方discord"}</a></div>
+                                <div><a target="_blank" href="https://users.rust-lang.org">{"Rust官方论坛"}</a></div>
+                                <div><a target="_blank" href="https://discord.gg/rust-lang">{"Rust官方discord"}</a></div>
+                                <div><a target="_blank" href="https://rustcc.cn">{"Rust中文社区"}</a></div>
+                                <div><a target="_blank" href="https://discord.gg/4mR6magGCs">{"Yew官方discord"}</a></div>
                             </Flex>
                             <Flex grow=1 direction="column">
                                 <p>{"帮助"}</p>
