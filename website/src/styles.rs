@@ -50,6 +50,9 @@ pub fn style(item: &str) -> String {
                 "width": "100%!important",
                 "margin-top": "10px",
                 "padding": "5px 0!important",
+                "& a": {
+                    "color": "#0e75f3",
+                },
                 "& .item": {
                     "margin": "5px 10px 5px 0",
                     "vertical-align": "bottom",
