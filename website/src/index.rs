@@ -81,12 +81,26 @@ impl Component for Index {
                     <IconButton icon="menu" color="#fff" slot="navigationIcon" onclick=self.link.callback(|_| Msg::ListClick(0)) />
                     <span slot="title">{"Yew Material-UI"}</span>
                     <span slot="title" class=style("version")>{"v"}{VERSION}</span>
+                    <a slot="actionItems" target="_blank" href="https://github.com/alibaba-inc/yew-material">
+                        <IconButton color="#fff">
+                            <svg viewBox="0 0 36 36">
+                                <path d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
+                                    c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1
+                                    c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4
+                                    c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7
+                                    c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5
+                                    c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z" 
+                                />
+                            </svg>
+                        </IconButton>
+                    </a>
                     <IconButton
                         slot="actionItems"
                         color="#fff"
                         on=if self.theme == "light" {true} else {false}
                         on_icon="brightness_7"
                         off_icon="brightness_4"
+                        margin="0 0 0 10px"
                         onclick=self.link.callback(|_| Msg::ChangeTheme)
                     />
                 </Appbar>
@@ -165,6 +179,7 @@ impl Component for Index {
                                 {router_anchor(Routes::Textfield)}
                             </Flex>
                         </List>
+                        <Flex height="120px" />
                     </Animate>
                     <Flex class=style("container") grow=1 direction="column">
                         {routes_render()}
@@ -173,20 +188,25 @@ impl Component for Index {
                 <Animate class="footer_box" r#type="margin" index=1 margin=if self.list_hide[0] {"0".into()} else {format!("0 0 0 {}", list_width)}>
                     <Flex class=style("footer") direction="column">
                         <Flex class="footer_items env_mobile_hide" auto_theme=true border_bottom=true padding="30px 0 40px 0">
-                            <Flex grow=1 direction="column">
+                            <Flex grow=1 direction="column" max_width="330px">
                                 <p>{"相关资源"}</p>
-                                <div><a href="#">{"Rust官网"}</a></div>
-                                <div><a href="#">{"Rust wasm-bindgen Github仓库"}</a></div>
-                                <div><a href="#">{"Rust web-sys 文档"}</a></div>
-                                <div><a href="#">{"Yew官网"}</a></div>
-                                <div><a href="#">{"Yew Github仓库"}</a></div>
-                                <div><a href="#">{"Material Web-Components Github仓库"}</a></div>
+                                <div><a href="https://www.rust-lang.org">{"Rust官网"}</a></div>
+                                <div><a href="https://github.com/rustwasm/wasm-bindgen">{"Rust wasm-bindgen Github仓库"}</a></div>
+                                <div><a href="https://docs.rs/web-sys">{"Rust web-sys 文档"}</a></div>
+                                <div><a href="https://yew.rs">{"Yew官网"}</a></div>
+                                <div><a href="https://github.com/material-components/material-components-web-components">{"Material Web-Components Github仓库"}</a></div>
                             </Flex>
-                            <Flex grow=1 direction="column">
+                            <Flex grow=1 direction="column" max_width="180px">
                                 <p>{"社区"}</p>
+                                <div><a href="https://users.rust-lang.org">{"Rust官方论坛"}</a></div>
+                                <div><a href="https://discord.gg/rust-lang">{"Rust官方discord"}</a></div>
+                                <div><a href="https://rustcc.cn">{"Rust中文社区"}</a></div>
+                                <div><a href="https://discord.gg/4mR6magGCs">{"Yew官方discord"}</a></div>
                             </Flex>
                             <Flex grow=1 direction="column">
                                 <p>{"帮助"}</p>
+                                <Text size="14px">{"Discord：madman.wang#9085"}</Text>
+                                <Text size="14px" padding="5px 0 0 0">{"咨询邮箱：admin@yew-material.cn"}</Text>
                             </Flex>
                         </Flex>
                         <Flex
