@@ -29,8 +29,12 @@ impl Component for PgTheme {
                 {link_des("#")}
                 {static_des(1)}
                 <div>
-                    <Text>{"自定义主题和完整配置项请查看此Github实例："}</Text>
-                    <Text color="#0e75f3"><span target="_blank" href="#">{"Theme实例(整理中)"}</span></Text>
+                    <Text>{"自定义主题和完整配置项可查看此文件："}</Text>
+                    <Text color="#0e75f3">
+                        <a target="_blank" href="https://github.com/alibaba-inc/yew-material/blob/master/website/src/theme.rs">
+                            {"Theme配置"}
+                        </a>
+                    </Text>
                 </div>
                 {code("
 use yew_material_utils::prelude::*;

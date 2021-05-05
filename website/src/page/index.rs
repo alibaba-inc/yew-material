@@ -70,10 +70,10 @@ impl Component for PgIndex {
                     <Text class="title">{"YEW-MATERIAL"}</Text>
                     <Text size="1.1rem">{"Yew-Material ui框架能让你更便捷的使用Rust语言来开发带有Material Design设计风格的Web应用"}</Text>
                     <a class="btn" href="/zh/install"><Button border_width="1px" border_color=color color=color ripple=color label="开始体验" /></a>
-                    <span>
-                        <Icon icon="code" color=color vertical_align="text-top" />
-                        <span>{" 通过 Create Yew Material App 快速开始"}</span>
-                    </span>
+                    <Flex align="center">
+                        <Icon icon="code" color=color margin="0 5px 0 0" />
+                        <Text>{"通过 Create Yew Material App 快速开始"}</Text>
+                    </Flex>
                     <div class="code">
                     {code("
 npx create-yew-material-app my-app

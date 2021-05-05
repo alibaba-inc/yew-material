@@ -156,11 +156,16 @@
         let theme = localStorage["__mdc_theme_ident"];
         let is_iframe = location.search.indexOf("_services=iframe") > -1;
         if (!is_iframe) {
-            if (theme === "light") {
-                document.body.style.background = "#fff";
-            } else {
-                document.body.style.background = "#333";
+            let background = "#fff";
+            switch (theme) {
+                case "dark":
+                    background = "#333";
+                    break;
+                case "custom":
+                    background = "#0a112b";
+                    break;
             }
+            document.body.style.background = background;
         }
     </script>
 </body>

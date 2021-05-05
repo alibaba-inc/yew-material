@@ -8,7 +8,7 @@ use yew_material_utils::theme::{change_theme, get_theme_ident};
 use yew_material_utils::{add_listener, BoolFeatures};
 
 pub enum Msg {
-    ChangeTheme,
+    ChangeTheme(u32),
     ListClick(usize),
     CloseLeftMenu,
 }
@@ -57,10 +57,11 @@ impl Component for Index {
                 }
                 false
             }
-            Msg::ChangeTheme => {
-                self.theme = match self.theme.as_str() {
-                    "light" => "dark".into(),
-                    _ => "light".into(),
+            Msg::ChangeTheme(idx) => {
+                self.theme = match idx {
+                    0 => "light".into(),
+                    1 => "dark".into(),
+                    _ => "custom".into(),
                 };
                 change_theme(self.theme.clone());
                 true
@@ -107,15 +108,17 @@ impl Component for Index {
                             </svg>
                         </IconButton>
                     </a>
-                    <IconButton
+                    <Menu
                         slot="actionItems"
-                        color="#fff"
-                        on=if self.theme == "light" {true} else {false}
-                        on_icon="brightness_7"
-                        off_icon="brightness_4"
-                        margin="0 0 0 10px"
-                        onclick=self.link.callback(|_| Msg::ChangeTheme)
-                    />
+                        anchor=html!{
+                            <IconButton color="#fff" icon="color_lens" margin="0 0 0 10px" />
+                        }
+                        onselected=&self.link.callback(|res| Msg::ChangeTheme(res))
+                    >
+                        <ListItem selected=if self.theme == "light" { true } else {false}>{"亮色-light"}</ListItem>
+                        <ListItem selected=if self.theme == "dark" { true } else {false}>{"暗色-dark"}</ListItem>
+                        <ListItem selected=if self.theme == "custom" { true } else {false}>{"自定义-custom"}</ListItem>
+                    </Menu>
                 </Appbar>
                 <Flex>
                     <Flex class="env_mobile_hide" width=list_width animate=true animate_type="horizontal" toggle=!self.list_hide[0] />
