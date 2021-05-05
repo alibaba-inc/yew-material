@@ -3,3 +3,4 @@ target/
 website/node_modules/
 Cargo.lock
 website/package-lock.json
+website/build/

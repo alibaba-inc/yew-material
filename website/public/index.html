@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="rust, javascript, wasm, gui, material">
+    <meta name="description" content="yew-material is a material-ui framework for yew">
     <link rel="stylesheet" href="%PUBLIC_URL%/normalize.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
@@ -152,7 +154,7 @@
         </div>
     </div>
     <script>
-        //解决app初始化未完成前页面背景色与主题不一致问题
+        //Solve the problem that the background color of the page is inconsistent with the theme before the app initialization is completed
         let theme = localStorage["__mdc_theme_ident"];
         let is_iframe = location.search.indexOf("_services=iframe") > -1;
         if (!is_iframe) {

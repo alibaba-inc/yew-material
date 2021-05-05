@@ -65,7 +65,7 @@ use yew_material::iframe::Iframe;
                         {table_th("height", "高度，不设置则为自适应", "String", "", "")}
                     </Flex>
                 </div>
-                {switch_bottom("iconbutton", "IconButton 图标按钮", "img", "Img 图片")}
+                {switch_bottom("icon_button", "IconButton 图标按钮", "img", "Img 图片")}
             </Animate>
         }
     }

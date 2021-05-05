@@ -77,7 +77,7 @@ use yew_material::icon::Icon;
                         {other_th("color", "颜色")}
                     </Flex>
                 </div>
-                {switch_bottom("formfield", "FormField 表单域", "iconbutton", "IconButton 图标按钮")}
+                {switch_bottom("formfield", "FormField 表单域", "icon_button", "IconButton 图标按钮")}
             </Animate>
         }
     }
