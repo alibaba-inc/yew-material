@@ -164,12 +164,13 @@ let schemes = {
 	},
 };
 
+let def_schemes = () => schemes["light"];
 let theme_ident_pre_val = "";
 let bodyStyle = document.body.style;
 const setBodyStyle = (ident, is_iframe) => {
 	if (theme_ident_pre_val !== ident) {
 		theme_ident_pre_val = ident;
-		let scheme = schemes[ident];
+		let scheme = schemes[ident] || def_schemes();
 		bodyStyle.color =
 			scheme.body && scheme.body.color ? scheme.body.color : scheme.color;
 		!is_iframe && [bodyStyle.background =
@@ -248,7 +249,7 @@ export const set_theme = (_ident = "light", theme) => {
 const themes = {};
 export const theme = (_ident, is_iframe) => {
 	let ident = _ident || "light";
-	let scheme = schemes[ident];
+	let scheme = schemes[ident] || def_schemes();
 
 	let fit = (items, item) =>
 		scheme[items] && scheme[items][item] ? scheme[items][item] : scheme[item];
