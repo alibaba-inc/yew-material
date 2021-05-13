@@ -11,6 +11,15 @@ version = "0.1.23"
 [lib]
 crate-type = ["cdylib", "rlib"]
 
+[profile.release]
+panic = 'abort'
+codegen-units = 1
+opt-level = 'z'
+lto = true
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ['-Oz']
+
 [dependencies]
 serde_derive = "1.0.115"
 yew = { git = "https://github.com/yewstack/yew/", branch = "master"}
@@ -57,9 +66,6 @@ features = [
     "tab",
     "iframe"
 ]
-
-[package.metadata.wasm-pack.profile.release]
-wasm-opt = ['-Oz']
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.17"
