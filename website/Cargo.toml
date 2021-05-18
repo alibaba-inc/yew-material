@@ -23,8 +23,8 @@ wasm-opt = ['-Oz']
 [dependencies]
 serde_derive = "1.0.115"
 yew = "0.18.0"
-yew-router = { git = "https://github.com/yewstack/yew/", branch = "master"}
-yewtil = { git = "https://github.com/yewstack/yew/", branch = "master" , features = ["pure", "neq", "effect", "future"] }
+yew-router = "0.15.0"
+yewtil = { version = "0.4.0", features = ["pure", "neq", "effect", "future"] }
 wasm-bindgen = { version = "0.2.67", features = ["serde-serialize"]}
 wasm-bindgen-futures = "0.4.17"
 serde = "1.0.115"
