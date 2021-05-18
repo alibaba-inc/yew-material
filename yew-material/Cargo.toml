@@ -49,9 +49,9 @@ serde_derive = "1.0.119"
 serde_json = "1.0.61"
 wasm-bindgen = { version = "0.2.69", features = ["serde-serialize"]}
 wasm-bindgen-futures = "0.4.19"
-yew = { git = "https://github.com/yewstack/yew/", branch = "master"}
-yewtil = { git = "https://github.com/yewstack/yew/", branch = "master" , features = ["pure", "neq", "future"] }
-yew-router = { git = "https://github.com/yewstack/yew/", branch = "master"}
+yew = "0.18.0"
+yewtil = { version = "0.4.0", features = ["pure", "neq", "future"] }
+yew-router = "0.15.0"
 yew-material-utils = { version = "0.1.23", path = "../yew-material-utils" }
 yew-material-macro = { version = "0.1.23", path = "../yew-material-macro" }
 
@@ -60,4 +60,3 @@ version = "0.3.46"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.19"
-
