@@ -12,11 +12,10 @@ use wasm_bindgen_futures::spawn_local;
 use web_sys::{Element, Event, HtmlElement, ShadowRoot, Storage};
 use yew::{
     format::{Json, Nothing, Text},
-    services::fetch::{FetchService, FetchTask, Request, Response},
     utils::{document, window},
     Callback, Html,
 };
-// use yew_services::fetch::{FetchService, FetchTask, Request, Response};
+use yew_services::fetch::{FetchService, FetchTask, Request, Response};
 
 pub mod theme;
 pub use self::theme::*;
@@ -360,7 +359,7 @@ pub mod prelude {
     pub use serde_json::json;
     pub use wasm_bindgen::prelude::*;
     pub use wasm_bindgen_futures::spawn_local;
-    pub use yew::services::fetch::{FetchTask, Request};
+    pub use yew_services::fetch::{FetchTask, Request};
 }
 
 pub use self::prelude::*;
