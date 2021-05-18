@@ -23,7 +23,6 @@ lazy_static = { version = "1.4.0", features = ["spin_no_std"] }
 spin = "0.5.2"
 gloo-timers = { version = "0.2.1", features = ["futures"]}
 yew = "0.18.0"
-yew-services = { git = "https://github.com/yewstack/yew/", branch = "master"}
 anyhow = "1.0"
 log = "0.4.6"
 wasm-logger = "0.2.0"
