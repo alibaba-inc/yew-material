@@ -1,4 +1,4 @@
-#![feature(external_doc)]
+// #![feature(external_doc)]
 
 #[macro_use]
 extern crate serde_derive;
@@ -171,7 +171,7 @@ fn to_pixel(pixel: &String) -> String {
 macro_rules! comp_theme {
     ($this: ident, $rendered: expr, $destroy: expr, $html: expr, $doc: expr) => {
         #[allow(dead_code)]
-        #[doc(include = $doc)]
+        #[doc = $doc]
         pub struct $this {
             uuid: String,
             props: Props,
@@ -220,7 +220,7 @@ macro_rules! comp_theme {
 #[macro_export]
 macro_rules! comp_theme_data {
     ($this: ident, $data: expr, $rendered: expr, $destroy: expr, $html: expr, $doc: expr) => {
-        #[doc(include = $doc)]
+        #[doc = $doc]
         #[derive(Clone)]
         pub struct $this {
             uuid: String,
